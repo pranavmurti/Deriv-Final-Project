@@ -1,0 +1,54 @@
+{
+  "strategy_id": "T202",
+  "instrument": "QQQ",
+  "timeframe": "15m",
+  "data_source": "unknown",
+  "entry_conditions": [
+    {
+      "condition_id": "C1",
+      "expression": "RSI14 < 28",
+      "indicators_required": [
+        "RSI14"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "condition_id": "E1",
+      "expression": "RSI14 >= 52"
+    },
+    {
+      "condition_id": "E2",
+      "expression": "time == end_of_day"
+    }
+  ],
+  "position_sizing_rule": "Enter 40% of available capital; if RSI drops below 22, add 60% of remaining available capital",
+  "stop_loss_rule": null,
+  "take_profit_rule": null,
+  "session_filters": [
+    "exclude final 25 minutes of trading session"
+  ],
+  "risk_controls": [],
+  "explicit_ambiguities": [
+    {
+      "ambiguity": "Definition of '40% long size' and 'remaining 60%'.",
+      "assumption_used_for_backtest": "Assume 40% of available capital at first entry, and 60% of remaining available capital when RSI drops below 22.",
+      "impact_if_different": "Position size would differ, affecting risk and return."
+    },
+    {
+      "ambiguity": "Definition of 'end of day'.",
+      "assumption_used_for_backtest": "Assume market close at 16:00 EST.",
+      "impact_if_different": "Exit timing could be earlier or later, altering trade duration."
+    },
+    {
+      "ambiguity": "Definition of 'final 25 minutes'.",
+      "assumption_used_for_backtest": "Assume last 25 minutes before market close.",
+      "impact_if_different": "Trade entry restrictions could be more or less restrictive."
+    },
+    {
+      "ambiguity": "Interpretation of RSI thresholds (cross vs. level).",
+      "assumption_used_for_backtest": "Assume cross below 28 triggers entry, cross above 52 triggers exit.",
+      "impact_if_different": "Trigger timing could shift, affecting trade count and performance."
+    }
+  ]
+}

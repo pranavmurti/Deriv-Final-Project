@@ -1,0 +1,17 @@
+[
+  {
+    "id": "T101",
+    "name": "NY Open Range Break EURUSD",
+    "description": "EURUSD on 15m. Build a range from 13:30 to 14:15 UTC. If candle closes above range high by at least 3 pips, buy. If closes below range low by 3 pips, sell. Stop goes at opposite side of range, target is 1.2R. No trades on Monday. Flatten all positions before 20:45 UTC."
+  },
+  {
+    "id": "T202",
+    "name": "QQQ RSI Dip-Recovery",
+    "description": "QQQ 15-minute chart. When RSI 14 goes below 28, enter 40% long size. If RSI drops below 22, add remaining 60%. Exit full position when RSI reaches 52 or by end of day whichever happens first. Do not open new trades in the final 25 minutes. Long-only strategy."
+  },
+  {
+    "id": "T303",
+    "name": "Synthetic Loss-Escalation Ladder",
+    "description": "On a synthetic 1-minute volatility stream, always predict UP with initial stake $1.50. After a losing trade, multiply next stake by 2.2. After any win, reset stake back to $1.50. Stop the session immediately if drawdown is greater than $180 or if total trades hit 60."
+  }
+]

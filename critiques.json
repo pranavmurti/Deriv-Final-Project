@@ -1,0 +1,118 @@
+{
+  "T101": {
+    "strategy_id": "T101",
+    "robustness_assessment": "Fragile",
+    "risk_flag": "moderate",
+    "overfitting_risk": "High",
+    "regime_dependence": "High",
+    "assumption_sensitivity": "High",
+    "execution_realism": "Low",
+    "likely_failure_modes": [
+      "Zero win rate across 8 trades",
+      "Excessive drawdown of 255 points (100% loss)",
+      "Ruin risk amplified by martingale stake doubling",
+      "Path\u2011dependent loss escalation leading to drawdown acceleration",
+      "Ambiguities in range definition and stop placement causing inconsistent execution",
+      "Limited sample size (8 trades) leading to unreliable statistics",
+      "Potential slippage and latency when entering at range extremes",
+      "Inadequate position sizing rule leading to uncontrolled risk"
+    ],
+    "martingale_warning": "The strategy employs a martingale rule (stake doubles after each loss, reset after a win). With a win rate of 0% and only 8 trades, the probability of a long losing streak is high, causing exponential growth of position size and rapid equity depletion. Drawdown accelerates as losses compound, and the strategy is highly path\u2011dependent: a single adverse move can trigger a cascade of increasing stakes. High win rates in other contexts can mislead because the martingale only protects against isolated losses; it does not mitigate systematic bias or trend reversal. The combination of zero win rate, high volatility in PnL, and the doubling rule makes the strategy extremely fragile and prone to ruin.",
+    "equity_curve_sample_points": [
+      0.0,
+      -1.0,
+      -3.0,
+      -7.0,
+      -15.0,
+      -31.0,
+      -63.0,
+      -127.0,
+      -255.0
+    ],
+    "ledger_summary": {
+      "count": 8,
+      "mean_pnl": -31.875,
+      "std_pnl": 44.2668450584472
+    },
+    "assumptions": {
+      "martingale": "stake doubles after each loss; reset after win"
+    }
+  },
+  "T202": {
+    "strategy_id": "T202",
+    "robustness_assessment": "Fragile \u2013 the strategy exhibits extreme sensitivity to a handful of trades, lacks a stop\u2011loss or risk\u2011control mechanism, and relies on a deterministic martingale\u2011style position sizing that amplifies losses. The backtest shows 0% win rate, a total loss of 255% of capital, and a maximum drawdown equal to the entire equity curve, indicating that the strategy is not robust to market noise or regime shifts.",
+    "risk_flag": "moderate",
+    "overfitting_risk": "Very high \u2013 only 8 trades were generated, all of which were losing. No out\u2011of\u2011sample validation, walk\u2011forward testing, or cross\u2011validation was performed. The RSI thresholds (28/52) and the 15\u2011minute timeframe appear to have been chosen to fit the limited data set rather than to capture a generalizable market pattern.",
+    "regime_dependence": "High \u2013 the strategy depends on RSI14 crossing specific levels, which are highly sensitive to market volatility and trend strength. In a low\u2011volatility or sideways market the RSI will rarely hit the 28 or 52 thresholds, leading to either no trades or a high frequency of false signals. The strategy\u2019s performance is therefore likely to collapse in any regime that differs from the narrow conditions under which the backtest was run.",
+    "assumption_sensitivity": "Extremely high \u2013 key ambiguities such as the definition of \u201c40% long size\u201d and \u201cremaining 60%\u201d, the exact timing of \u201cend of day\u201d, and the interpretation of RSI thresholds (cross vs. level) can change the position sizing, trade count, and exit timing dramatically. Small deviations from the assumed definitions would alter the equity curve and could either mask or expose the strategy\u2019s weaknesses.",
+    "execution_realism": "Low \u2013 the strategy assumes instantaneous execution at the exact RSI threshold on a 15\u2011minute bar, ignores slippage, commissions, and liquidity constraints, and presumes that 40% of capital can be allocated to a single position without affecting market impact. The average trade duration of 1 minute is unrealistic for a 15\u2011minute RSI trigger, suggesting that the backtest may have been constructed with unrealistic assumptions.",
+    "likely_failure_modes": [
+      "Ruin risk from the martingale\u2011style position sizing: each loss forces a larger position, quickly exhausting capital.",
+      "Path dependency: the outcome of each trade depends on the sequence of prior losses, making the strategy highly sensitive to random walk fluctuations.",
+      "Drawdown acceleration: consecutive losses compound the position size, leading to exponential drawdown growth.",
+      "Misleading high win rate potential: if the strategy were to produce a few wins, the high win rate could mask the catastrophic losses that occur during long losing streaks.",
+      "Regime shift failure: in trending or volatile markets the RSI thresholds may not be hit, resulting in missed opportunities or false entries.",
+      "Execution failure: slippage and transaction costs would erode the already negative performance, potentially turning a marginally profitable strategy into a loss\u2011making one."
+    ],
+    "martingale_warning": {
+      "ruin_risk": "High \u2013 doubling the stake after each loss without a stop\u2011loss or capital buffer leads to exponential capital depletion.",
+      "path_dependency": "Strong \u2013 the strategy\u2019s future position size is determined by the entire loss history, making it vulnerable to random sequences of losses.",
+      "drawdown_acceleration": "Severe \u2013 each loss increases the position size, so a single large adverse move can wipe out the entire equity base.",
+      "high_win_rate_mislead": "N/A \u2013 the strategy has a 0% win rate; however, if a high win rate were observed in a different dataset, it could still be misleading because the wins would be small relative to the large losses incurred during long losing streaks."
+    },
+    "equity_curve_sample_points": [
+      0.0,
+      -1.0,
+      -3.0,
+      -7.0,
+      -15.0,
+      -31.0,
+      -63.0,
+      -127.0,
+      -255.0
+    ],
+    "ledger_summary": {
+      "count": 8,
+      "mean_pnl": -31.875,
+      "std_pnl": 44.2668450584472
+    },
+    "assumptions": {
+      "martingale": "stake doubles after each loss; reset after win"
+    }
+  },
+  "T303": {
+    "strategy_id": "T303",
+    "robustness_assessment": "Fragile \u2013 the strategy relies on a deterministic martingale escalation with no stop\u2011loss or profit target, leading to exponential capital depletion in a single losing streak. The backtest shows 0% win rate and a total loss of $255 over 8 trades, indicating that the model is overfitted to a very specific synthetic volatility path that never produced a win. The strategy\u2019s performance is highly sensitive to the assumed zero transaction costs and perfect execution, which are unrealistic for a 1\u2011minute volatility instrument. The session risk controls (cumulative drawdown >$180 or 60 trades) are insufficient to prevent ruin in a realistic market where volatility spikes can cause rapid losses. The strategy\u2019s reliance on a single \u201cpredict UP\u201d signal without any confirmation or filtering makes it vulnerable to regime shifts; a change in volatility dynamics would immediately render the signal ineffective.",
+    "risk_flag": "moderate",
+    "overfitting_risk": "Very high \u2013 the strategy only works on the specific synthetic path used; any deviation leads to immediate failure.",
+    "regime_dependence": "Strong \u2013 success depends on a regime where the synthetic volatility consistently moves in the predicted direction; any shift to mean\u2011reverting or trending volatility will cause losses.",
+    "assumption_sensitivity": "High \u2013 zero transaction costs, perfect slippage, and the exact definition of the synthetic volatility instrument are critical. Introducing realistic costs or a different instrument definition would likely eliminate the already negative performance.",
+    "execution_realism": "Low \u2013 1\u2011minute directional bets on volatility with no slippage or cost are unrealistic. The position sizing rule (doubling stake after loss) would quickly exceed available capital in live markets.",
+    "likely_failure_modes": [
+      "Rapid capital exhaustion due to consecutive losses",
+      "Unrealistic profit expectations from high win rate in backtest",
+      "Inadequate risk controls leading to session stop before recovery",
+      "Misinterpretation of signal leading to wrong trade direction"
+    ],
+    "martingale_warning": "The martingale scheme exposes the trader to ruin risk: a single long losing streak (here 8 consecutive losses) wipes out all capital. The high win rate in backtests can be misleading because the strategy only resets after a win, but with a 0% win rate the reset never occurs, causing exponential loss growth. Drawdown accelerates as stakes double, and path dependency means that any deviation from the assumed volatility path leads to catastrophic losses. The strategy lacks a stop\u2011loss or profit target, making it highly fragile in real market conditions.",
+    "equity_curve_sample_points": [
+      0.0,
+      -1.0,
+      -3.0,
+      -7.0,
+      -15.0,
+      -31.0,
+      -63.0,
+      -127.0,
+      -255.0
+    ],
+    "ledger_summary": {
+      "count": 8,
+      "mean_pnl": -31.875,
+      "std_pnl": 44.2668450584472
+    },
+    "assumptions": {
+      "martingale": "stake doubles after each loss; reset after win"
+    }
+  }
+}

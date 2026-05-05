@@ -1,0 +1,68 @@
+{
+  "strategy_id": "T101",
+  "instrument": "EURUSD",
+  "timeframe": "15m",
+  "data_source": "Historical price data",
+  "entry_conditions": [
+    {
+      "condition_id": "E1",
+      "expression": "Candle closes above range high by at least 3 pips",
+      "indicators_required": [
+        "range_high"
+      ]
+    },
+    {
+      "condition_id": "E2",
+      "expression": "Candle closes below range low by at least 3 pips",
+      "indicators_required": [
+        "range_low"
+      ]
+    }
+  ],
+  "exit_conditions": [
+    {
+      "condition_id": "X1",
+      "expression": "Stop loss triggered"
+    },
+    {
+      "condition_id": "X2",
+      "expression": "Take profit triggered"
+    }
+  ],
+  "position_sizing_rule": "Not specified",
+  "stop_loss_rule": "Stop at opposite side of range",
+  "take_profit_rule": "Target is 1.2R",
+  "session_filters": [
+    "Flatten all positions before 20:45 UTC"
+  ],
+  "risk_controls": [
+    "No trades on Monday"
+  ],
+  "explicit_ambiguities": [
+    {
+      "ambiguity": "Definition of the range high and low used for entry and stop placement.",
+      "assumption_used_for_backtest": "Range high is the highest high of all candles between 13:30 and 14:15 UTC inclusive; range low is the lowest low of those candles.",
+      "impact_if_different": "Different definitions would alter the entry price, stop level, and risk/reward calculations."
+    },
+    {
+      "ambiguity": "Which candle triggers the entry after the range period.",
+      "assumption_used_for_backtest": "Entry is triggered on the candle that closes above or below the range high/low during the same 15\u2011minute period.",
+      "impact_if_different": "If the next candle after the range period is used instead, the entry timing and potential slippage would change."
+    },
+    {
+      "ambiguity": "Placement of the stop loss relative to the range.",
+      "assumption_used_for_backtest": "Stop is placed at the opposite side of the range: if buying, stop at range low; if selling, stop at range high.",
+      "impact_if_different": "Alternative stop placements would modify the risk exposure and potential loss per trade."
+    },
+    {
+      "ambiguity": "Interpretation of the 1.2R target.",
+      "assumption_used_for_backtest": "Target is 1.2 times the distance between the entry price and the stop loss (i.e., 1.2\u00d7risk).",
+      "impact_if_different": "If the target is a fixed pip value or a different multiple, the expected profit per trade would change."
+    },
+    {
+      "ambiguity": "Timing of the flattening of positions before 20:45 UTC.",
+      "assumption_used_for_backtest": "All positions are closed exactly at 20:45 UTC.",
+      "impact_if_different": "Closing earlier or later could affect realized profits or losses, especially if the market moves significantly around that time."
+    }
+  ]
+}

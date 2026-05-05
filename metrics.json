@@ -1,0 +1,38 @@
+{
+  "T101": {
+    "total_return": -255.0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "max_drawdown": 255.0,
+    "annualised_sharpe": -11.430675431533734,
+    "sortino_ratio": -11.430675431533734,
+    "average_trade_duration_minutes": 1.0,
+    "exposure_percentage": 0.26675558519506504,
+    "number_of_trades": 8,
+    "largest_losing_streak": 8
+  },
+  "T202": {
+    "total_return": -255.0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "max_drawdown": 255.0,
+    "annualised_sharpe": -11.430675431533734,
+    "sortino_ratio": -11.430675431533734,
+    "average_trade_duration_minutes": 1.0,
+    "exposure_percentage": 0.26675558519506504,
+    "number_of_trades": 8,
+    "largest_losing_streak": 8
+  },
+  "T303": {
+    "total_return": -255.0,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "max_drawdown": 255.0,
+    "annualised_sharpe": -11.430675431533734,
+    "sortino_ratio": -11.430675431533734,
+    "average_trade_duration_minutes": 1.0,
+    "exposure_percentage": 0.26675558519506504,
+    "number_of_trades": 8,
+    "largest_losing_streak": 8
+  }
+}

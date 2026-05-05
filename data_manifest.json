@@ -1,0 +1,28 @@
+{
+  "generated_at": "2026-05-05T10:48:27.038516+00:00",
+  "datasets": {
+    "T101": {
+      "instrument": "SYNTHETIC_V75",
+      "mode": "simulated_gbm",
+      "rows": 3000
+    },
+    "T202": {
+      "instrument": "SYNTHETIC_V75",
+      "mode": "simulated_gbm",
+      "rows": 3000
+    },
+    "T303": {
+      "instrument": "SYNTHETIC_V75",
+      "mode": "simulated_gbm",
+      "rows": 3000
+    }
+  },
+  "simulation_defaults": {
+    "process": "geometric_brownian_motion",
+    "drift": 0,
+    "sigma": "0.75 / sqrt(year)",
+    "seed": 123,
+    "timeframe": "1 minute or tick-equivalent",
+    "initial_price": 100
+  }
+}

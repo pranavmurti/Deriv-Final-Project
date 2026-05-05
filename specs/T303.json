@@ -1,0 +1,49 @@
+{
+  "strategy_id": "T303",
+  "instrument": "synthetic volatility stream",
+  "timeframe": "1-minute",
+  "data_source": "synthetic volatility stream",
+  "entry_conditions": [
+    {
+      "condition_id": "C1",
+      "expression": "predict UP",
+      "indicators_required": []
+    }
+  ],
+  "exit_conditions": [
+    {
+      "condition_id": "E1",
+      "expression": "trade closed"
+    }
+  ],
+  "position_sizing_rule": "Stake starts at $1.50. After a losing trade, stake is multiplied by 2.2. After any winning trade, stake resets to $1.50.",
+  "stop_loss_rule": null,
+  "take_profit_rule": null,
+  "session_filters": [],
+  "risk_controls": [
+    "Stop the session immediately if cumulative drawdown exceeds $180",
+    "Stop the session immediately if total trades reach 60"
+  ],
+  "explicit_ambiguities": [
+    {
+      "ambiguity": "Definition of the synthetic volatility stream instrument",
+      "assumption_used_for_backtest": "Assume the instrument provides a volatility index value per minute that can be traded as a directional bet on volatility increase",
+      "impact_if_different": "A different instrument definition could alter the volatility dynamics, affecting trade outcomes and drawdown calculations"
+    },
+    {
+      "ambiguity": "Interpretation of 'predict UP'",
+      "assumption_used_for_backtest": "Assume it means a bullish signal that the next minute's volatility will increase, triggering a long position on the synthetic volatility instrument",
+      "impact_if_different": "If interpreted as a different market direction or time horizon, entry timing and position direction could change, impacting performance"
+    },
+    {
+      "ambiguity": "Calculation of cumulative drawdown",
+      "assumption_used_for_backtest": "Assume drawdown is measured as the maximum cumulative loss from the highest equity point reached during the session",
+      "impact_if_different": "Alternative drawdown definitions (e.g., rolling window or absolute loss) could trigger the session stop earlier or later, affecting risk exposure"
+    },
+    {
+      "ambiguity": "Transaction costs and slippage",
+      "assumption_used_for_backtest": "Assume zero transaction costs and no slippage when entering or exiting trades",
+      "impact_if_different": "Including realistic costs could reduce profitability and increase drawdown, potentially causing the session to stop earlier"
+    }
+  ]
+}

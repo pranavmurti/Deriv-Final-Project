@@ -1,0 +1,197 @@
+{
+  "A": [
+    {
+      "scenario_description": "violent downtrend with shocks",
+      "generated_path_assumptions": {
+        "seed": 1000,
+        "drift": -0.2,
+        "sigma": 0.9
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "high-volatility mean-zero whipsaw",
+      "generated_path_assumptions": {
+        "seed": 1001,
+        "drift": 0.0,
+        "sigma": 1.2
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "uptrend with intermittent crash bars",
+      "generated_path_assumptions": {
+        "seed": 1002,
+        "drift": 0.2,
+        "sigma": 0.7
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    }
+  ],
+  "B": [
+    {
+      "scenario_description": "violent downtrend with shocks",
+      "generated_path_assumptions": {
+        "seed": 1000,
+        "drift": -0.2,
+        "sigma": 0.9
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "high-volatility mean-zero whipsaw",
+      "generated_path_assumptions": {
+        "seed": 1001,
+        "drift": 0.0,
+        "sigma": 1.2
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "uptrend with intermittent crash bars",
+      "generated_path_assumptions": {
+        "seed": 1002,
+        "drift": 0.2,
+        "sigma": 0.7
+      },
+      "backtest_result": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    }
+  ],
+  "C": [
+    {
+      "scenario_description": "violent downtrend with shocks",
+      "generated_path_assumptions": {
+        "seed": 1000,
+        "drift": -0.2,
+        "sigma": 0.9
+      },
+      "backtest_result": {
+        "total_return": -255.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 255.0,
+        "annualised_sharpe": -11.430675431533734,
+        "sortino_ratio": -11.430675431533734,
+        "average_trade_duration_minutes": 1.0,
+        "exposure_percentage": 0.6672226855713094,
+        "number_of_trades": 8,
+        "largest_losing_streak": 8
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "high-volatility mean-zero whipsaw",
+      "generated_path_assumptions": {
+        "seed": 1001,
+        "drift": 0.0,
+        "sigma": 1.2
+      },
+      "backtest_result": {
+        "total_return": -255.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 255.0,
+        "annualised_sharpe": -11.430675431533734,
+        "sortino_ratio": -11.430675431533734,
+        "average_trade_duration_minutes": 1.0,
+        "exposure_percentage": 0.6672226855713094,
+        "number_of_trades": 8,
+        "largest_losing_streak": 8
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    },
+    {
+      "scenario_description": "uptrend with intermittent crash bars",
+      "generated_path_assumptions": {
+        "seed": 1002,
+        "drift": 0.2,
+        "sigma": 0.7
+      },
+      "backtest_result": {
+        "total_return": -255.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 255.0,
+        "annualised_sharpe": -11.430675431533734,
+        "sortino_ratio": -11.430675431533734,
+        "average_trade_duration_minutes": 1.0,
+        "exposure_percentage": 0.6672226855713094,
+        "number_of_trades": 8,
+        "largest_losing_streak": 8
+      },
+      "failure_mode_observed": "drawdown expansion or signal starvation"
+    }
+  ]
+}

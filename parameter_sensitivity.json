@@ -1,0 +1,103 @@
+{
+  "breakout_like": [
+    {
+      "strategy_id": "T101",
+      "breakout_pips": 2.5,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    },
+    {
+      "strategy_id": "T101",
+      "breakout_pips": 5.0,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    },
+    {
+      "strategy_id": "T101",
+      "breakout_pips": 7.5,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    }
+  ],
+  "rsi_like": [
+    {
+      "strategy_id": "T202",
+      "rsi_threshold": 12.5,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    },
+    {
+      "strategy_id": "T202",
+      "rsi_threshold": 25,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    },
+    {
+      "strategy_id": "T202",
+      "rsi_threshold": 37.5,
+      "metrics": {
+        "total_return": 0.0,
+        "win_rate": 0.0,
+        "profit_factor": 0.0,
+        "max_drawdown": 0.0,
+        "annualised_sharpe": 0.0,
+        "sortino_ratio": 0.0,
+        "average_trade_duration_minutes": 0.0,
+        "exposure_percentage": 0.0,
+        "number_of_trades": 0,
+        "largest_losing_streak": 0
+      }
+    }
+  ],
+  "interpretation": "Surfaces fragile zones where small threshold changes materially alter drawdown and win rate."
+}
