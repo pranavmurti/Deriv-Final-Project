@@ -19,3 +19,5 @@ Or:
 - `make validate`
 
 Outputs include `specs/`, `ledgers/`, `metrics.json`, `critiques.json`, `report.md`, optional robustness artifacts, and `llm_calls.jsonl`.
+
+For API key, create a .env file in the root directory and enter your api key and desired llm model
